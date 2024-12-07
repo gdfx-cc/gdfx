@@ -12,14 +12,14 @@ endif()
 set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/appicon.rc")
 
 file(GLOB SOURCES
-	"src/gdfx/game/*.hpp"
 	"src/gdfx/game/*.cpp"
+	"src/gdfx/game/*.hpp"
+	"src/gdfx/graphics/*.cpp"
 	"src/gdfx/graphics/*.hpp"
-	"src/gdfx/graphics/*.hpp"
-	"src/gdfx/platform/*.hpp"
 	"src/gdfx/platform/*.cpp"
-	"src/gdfx/*.hpp"
+	"src/gdfx/platform/*.hpp"
 	"src/gdfx/*.cpp"
+	"src/gdfx/*.hpp"
 )
 
 function(assign_source_group)
