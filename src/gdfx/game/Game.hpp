@@ -4,7 +4,6 @@
 #ifndef __GDFX_GAME_GAME_HPP__
 #define __GDFX_GAME_GAME_HPP__
 
-#include <iostream>
 #include <string>
 #include <gdfx/platform/SDL3.hpp>
 #include <gdfx/platform/SDLException.hpp>
@@ -16,25 +15,13 @@ class Game {
 public:
     static Game *createGame(); // implement in derived class cpp via CREATE_GAME(MyGame);
 
-    Game(const char *name, const char *identifier, const char *version, int width, int height) :
-        graphics(),
-        appName(name),
-        appIdentifier(identifier),
-        appVersion(version),
-        width(width),
-        height(height)
-    {
-        if (!SDL_SetAppMetadata(name, version, identifier))
-            throw SDLException();
-
-        if (!SDL_Init(SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_GAMEPAD))
-            throw SDLException();
-
-        graphics.create(name, width, height);
-    }
+    Game(const char *name, const char *identifier, const char *version, int width, int height);
+    ~Game();
 
     virtual void update() {}
     virtual void draw(Graphics& g) {}
+
+    void iterate();
 
     Graphics& getGraphics() { return graphics; }
     const std::string& getAppName() const { return appName; }

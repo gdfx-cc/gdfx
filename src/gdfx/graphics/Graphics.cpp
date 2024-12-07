@@ -39,6 +39,7 @@ void Graphics::create(const char *title, int w, int h)
         throw SDLException();
 
     SDL_SetRenderLogicalPresentation(renderer, w, h, SDL_LOGICAL_PRESENTATION_LETTERBOX);
+    //SDL_SetRenderLogicalPresentation(renderer, w, h, SDL_LOGICAL_PRESENTATION_INTEGER_SCALE);
 
     renderTarget = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
     SDL_SetTextureScaleMode(renderTarget, SDL_SCALEMODE_NEAREST);
@@ -76,6 +77,28 @@ void Graphics::clear()
 void Graphics::drawText(const char *text, int x, int y)
 {
     SDL_RenderDebugText(renderer, x, y, text);
+}
+
+void Graphics::drawPixel(int x, int y)
+{
+    SDL_RenderPoint(renderer, (float)x, (float)y);
+}
+
+void Graphics::drawLine(int x1, int y1, int x2, int y2)
+{
+    SDL_RenderLine(renderer, (float)x1, (float)y1, (float)x2, (float)y2);
+}
+
+void Graphics::drawRect(int x, int y, int w, int h)
+{
+    SDL_FRect rect{ (float)x, (float)y, (float)w, (float)h };
+    SDL_RenderRect(renderer, &rect);
+}
+
+void Graphics::fillRect(int x, int y, int w, int h)
+{
+    SDL_FRect rect{ (float)x, (float)y, (float)w, (float)h };
+    SDL_RenderFillRect(renderer, &rect);
 }
 
 } // gdfx

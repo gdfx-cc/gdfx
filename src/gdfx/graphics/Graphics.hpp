@@ -21,6 +21,11 @@ public:
     void clear();
 
     void drawText(const char *text, int x, int y);
+    void drawPixel(int x, int y);
+    void drawLine(int x1, int y1, int x2, int y2);
+    void drawRect(int x, int y, int w, int h);
+    
+    void fillRect(int x, int y, int w, int h);
 
 private:
     SDL_Window *window;

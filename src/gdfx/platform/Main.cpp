@@ -36,11 +36,7 @@ SDL_AppResult SDL_AppIterate(void *state)
 
 	try {
 		if (game) {
-			game->update();
-
-			game->getGraphics().begin();
-			game->draw(game->getGraphics());
-			game->getGraphics().end();
+			game->iterate();
 		}
 	}
 	catch (const std::exception& e) {
