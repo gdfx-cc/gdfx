@@ -6,6 +6,7 @@
 #include <gdfx/game/Game.hpp>
 
 #define SDL_MAIN_USE_CALLBACKS
+#include <SDL3/SDL_main.h>
 
 using namespace gdfx;
 
@@ -36,7 +37,10 @@ SDL_AppResult SDL_AppIterate(void *state)
 	try {
 		if (game) {
 			game->update();
-			game->draw();
+
+			game->getGraphics().begin();
+			game->draw(game->getGraphics());
+			game->getGraphics().end();
 		}
 	}
 	catch (const std::exception& e) {

@@ -8,6 +8,7 @@
 #include <string>
 #include <gdfx/platform/SDL3.hpp>
 #include <gdfx/platform/SDLException.hpp>
+#include <gdfx/graphics/Graphics.hpp>
 
 namespace gdfx {
 
@@ -16,6 +17,7 @@ public:
     static Game *createGame(); // implement in derived class cpp via CREATE_GAME(MyGame);
 
     Game(const char *name, const char *identifier, const char *version, int width, int height) :
+        graphics(),
         appName(name),
         appIdentifier(identifier),
         appVersion(version),
@@ -27,11 +29,14 @@ public:
 
         if (!SDL_Init(SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_GAMEPAD))
             throw SDLException();
+
+        graphics.create(name, width, height);
     }
 
     virtual void update() {}
-    virtual void draw() {}
+    virtual void draw(Graphics& g) {}
 
+    Graphics& getGraphics() { return graphics; }
     const std::string& getAppName() const { return appName; }
     const std::string& getAppIdentifier() const { return appIdentifier; }
     const std::string& getAppVersion() const { return appVersion; }
@@ -39,6 +44,7 @@ public:
     int getHeight() const { return height; }
 
 private:
+    Graphics graphics;
     std::string appName;
     std::string appIdentifier;
     std::string appVersion;
