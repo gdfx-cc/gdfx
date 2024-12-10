@@ -2,6 +2,7 @@
 
 #include <gdfx/game/Game.hpp>
 #include <gdfx/graphics/Graphics.hpp>
+#include <gdfx/math/Bezier.hpp>
 
 using namespace gdfx;
 
@@ -37,6 +38,19 @@ public:
 
         g.setColor(0, 0, 128);
         g.drawFilledCircle(200, 100, 32);
+
+        Vector2 controlPoints[4] = {
+            { 100, 0 },
+            { 110, 40 },
+            { 300, 80 },
+            { 200, 100 }
+        };
+        std::vector<Vector2> curvePoints;
+        Bezier::calcCurve(controlPoints, 30, curvePoints);
+        g.setColor(0, 255, 255);
+        for (int i = 0; i < 30; i+=1) {
+            g.drawLine(curvePoints[i].x, curvePoints[i].y, curvePoints[i+1].x, curvePoints[i+1].y);
+        }
     }
 };
 CREATE_GAME(Ex001_HelloWorld);

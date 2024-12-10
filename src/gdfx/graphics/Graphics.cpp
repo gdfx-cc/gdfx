@@ -5,6 +5,7 @@
 #include <vector>
 #include <gdfx/platform/SDLException.hpp>
 #include <gdfx/graphics/Graphics.hpp>
+#include <gdfx/math/Math.hpp>
 
 namespace gdfx {
 
@@ -202,7 +203,7 @@ void Graphics::drawFilledCircle(int x, int y, int radius)
 
     vertices.push_back(center);
 
-    for (float phi = 0; phi < 2*3.14159; phi += 3.14159/10) {
+    for (float phi = 0; phi < 2*Math::PI; phi += Math::PI/10) {
         SDL_Vertex v;
 
         v.position.x = x + (float)radius * cos(phi);
