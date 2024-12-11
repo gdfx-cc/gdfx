@@ -12,6 +12,8 @@ endif()
 set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/appicon.rc")
 
 file(GLOB SOURCES
+	"src/gdfx/content/*.cpp"
+	"src/gdfx/content/*.hpp"
 	"src/gdfx/game/*.cpp"
 	"src/gdfx/game/*.hpp"
 	"src/gdfx/graphics/*.cpp"
@@ -19,6 +21,7 @@ file(GLOB SOURCES
 	"src/gdfx/math/*.cpp"
 	"src/gdfx/math/*.hpp"
 	"src/gdfx/platform/*.cpp"
+	"src/gdfx/platform/*.h"
 	"src/gdfx/platform/*.hpp"
 	"src/gdfx/*.cpp"
 	"src/gdfx/*.hpp"

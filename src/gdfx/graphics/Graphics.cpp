@@ -146,6 +146,12 @@ void Graphics::drawCircle(int x, int y, int radius)
     SDL_RenderPoints(renderer, &points[0], points.size());
 }
 
+void Graphics::drawImage(Image& img, int x, int y)
+{
+    SDL_FRect dst{ (float)x, (float)y, (float)img.getWidth(), (float)img.getHeight() };
+    SDL_RenderTexture(renderer, img.getTexture(), nullptr, &dst);
+}
+
 void Graphics::drawFilledRect(int x, int y, int w, int h)
 {
     SDL_FRect rect{ (float)x, (float)y, (float)w, (float)h };

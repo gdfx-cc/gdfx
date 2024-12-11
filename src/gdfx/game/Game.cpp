@@ -11,7 +11,8 @@ Game::Game(const char *name, const char *identifier, const char *version, int wi
     appIdentifier(identifier),
     appVersion(version),
     width(width),
-    height(height)
+    height(height),
+    content()
 {
     if (!SDL_SetAppMetadata(name, version, identifier))
         throw SDLException();
@@ -20,6 +21,7 @@ Game::Game(const char *name, const char *identifier, const char *version, int wi
         throw SDLException();
 
     graphics.create(name, width, height);
+    content.setGraphics(&graphics);
 }
 
 Game::~Game()

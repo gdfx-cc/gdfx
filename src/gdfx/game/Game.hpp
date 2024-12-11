@@ -8,6 +8,7 @@
 #include <gdfx/platform/SDL3.hpp>
 #include <gdfx/platform/SDLException.hpp>
 #include <gdfx/graphics/Graphics.hpp>
+#include <gdfx/content/ContentManager.hpp>
 
 namespace gdfx {
 
@@ -37,6 +38,9 @@ private:
     std::string appVersion;
     int width;
     int height;
+    
+protected:
+    ContentManager content;
 };
 
 } // gdfx

@@ -5,6 +5,7 @@
 #define __GDFX_GRAPHICS_GRAPHICS_HPP__
 
 #include <gdfx/platform/SDL3.hpp>
+#include <gdfx/graphics/Image.hpp>
 
 namespace gdfx {
 
@@ -28,10 +29,13 @@ public:
     void drawRect(int x, int y, int w, int h);
     void drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3);
     void drawCircle(int x, int y, int radius);
+    void drawImage(Image& img, int x, int y);
 
     void drawFilledRect(int x, int y, int w, int h);
     void drawFilledTriangle(int x1, int y1, int x2, int y2, int x3, int y3);
     void drawFilledCircle(int x, int y, int radius);
+
+    SDL_Renderer *getRenderer() { return renderer; }
 
 private:
     SDL_Window *window;
