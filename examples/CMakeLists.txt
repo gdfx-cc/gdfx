@@ -10,3 +10,12 @@ target_link_libraries(Ex001_HelloWorld PRIVATE gdfx)
 # Example 002 - Hello Image
 add_executable(Ex002_HelloImage WIN32 Ex002_HelloImage.cpp ${APP_ICON_RESOURCE_WINDOWS})
 target_link_libraries(Ex002_HelloImage PRIVATE gdfx)
+
+# Example 003 - Hello Sound
+add_executable(Ex003_HelloSound WIN32 Ex003_HelloSound.cpp ${APP_ICON_RESOURCE_WINDOWS})
+target_link_libraries(Ex003_HelloSound PRIVATE gdfx)
+
+# Example 004 - Hello Music
+add_executable(Ex004_HelloMusic WIN32 Ex004_HelloMusic.cpp ${APP_ICON_RESOURCE_WINDOWS})
+target_link_libraries(Ex004_HelloMusic PRIVATE gdfx)
+

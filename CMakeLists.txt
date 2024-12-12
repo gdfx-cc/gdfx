@@ -4,14 +4,18 @@ project(gdfx)
 
 if (GDFX_USE_SYSTEM_SDL)
 	find_package(SDL3 REQUIRED CONFIG REQUIRED COMPONENTS SDL3-shared)
+	find_package(SDL3_mixer REQUIRED CONFIG REQUIRED COMPONENTS SDL3_mixer-shared)
 else()
 	# SDL as a submodule in src/SDL
 	add_subdirectory(src/SDL EXCLUDE_FROM_ALL)
+	add_subdirectory(src/SDL_mixer EXCLUDE_FROM_ALL)
 endif()
 
 set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/appicon.rc")
 
 file(GLOB SOURCES
+	"src/gdfx/audio/*.cpp"
+	"src/gdfx/audio/*.hpp"
 	"src/gdfx/content/*.cpp"
 	"src/gdfx/content/*.hpp"
 	"src/gdfx/game/*.cpp"
@@ -49,7 +53,7 @@ add_library(${PROJECT_NAME}
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 target_include_directories(${PROJECT_NAME} PUBLIC src)
-target_link_libraries(${PROJECT_NAME} PUBLIC SDL3::SDL3)
+target_link_libraries(${PROJECT_NAME} PUBLIC SDL3::SDL3 SDL3_mixer::SDL3_mixer)
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/")
 

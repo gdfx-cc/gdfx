@@ -8,6 +8,7 @@
 #include <gdfx/platform/SDL3.hpp>
 #include <gdfx/platform/SDLException.hpp>
 #include <gdfx/graphics/Graphics.hpp>
+#include <gdfx/audio/Audio.hpp>
 #include <gdfx/content/ContentManager.hpp>
 
 namespace gdfx {
@@ -25,6 +26,8 @@ public:
     void iterate();
 
     Graphics& getGraphics() { return graphics; }
+    Audio& getAudio() { return audio; }
+
     const std::string& getAppName() const { return appName; }
     const std::string& getAppIdentifier() const { return appIdentifier; }
     const std::string& getAppVersion() const { return appVersion; }
@@ -33,6 +36,7 @@ public:
 
 private:
     Graphics graphics;
+    Audio audio;
     std::string appName;
     std::string appIdentifier;
     std::string appVersion;

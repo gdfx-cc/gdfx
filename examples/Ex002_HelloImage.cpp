@@ -1,4 +1,4 @@
-// Ex001_HelloWorld.cpp - A simple hello world example.
+// Ex002_HelloImage.cpp - Loads and displays an image on the screen.
 
 #include <memory>
 #include <gdfx/game/Game.hpp>

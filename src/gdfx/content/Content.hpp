@@ -17,7 +17,7 @@ class ContentManager;
 */
 class Content {
 public:
-    Content() : path() {}
+    Content() : contentMgr(nullptr), path(), fullPath() {}
     virtual ~Content() {}
 
     virtual bool load() = 0;
@@ -28,12 +28,14 @@ public:
     void setContentMgr(ContentManager *content) { contentMgr = content; }
     ContentManager *getContentMgr() { return contentMgr; }
 
-    void setPath(const std::string& path) { this->path = path; }
+    void setPath(const std::string& path);
     const std::string& getPath() const { return path; }
+    const std::string& getFullPath() const { return fullPath; }
 
 private:
     ContentManager *contentMgr;
     std::string path;
+    std::string fullPath;
 };
 
 } // gdfx

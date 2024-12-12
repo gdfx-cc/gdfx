@@ -19,12 +19,13 @@ Image::Image() :
 
 Image::~Image()
 {
+    unload();
 }
 
 bool Image::load()
 {
     int bytesPerPixel;
-    uint8_t *data = Storage::loadImage(getPath().c_str(), width, height, bytesPerPixel, 4, false);
+    uint8_t *data = Storage::loadImage(getFullPath().c_str(), width, height, bytesPerPixel, 4, false);
     if (!data)
         return false;
 

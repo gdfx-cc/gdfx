@@ -7,6 +7,7 @@ namespace gdfx {
 
 Game::Game(const char *name, const char *identifier, const char *version, int width, int height) :
     graphics(),
+    audio(),
     appName(name),
     appIdentifier(identifier),
     appVersion(version),
@@ -22,6 +23,8 @@ Game::Game(const char *name, const char *identifier, const char *version, int wi
 
     graphics.create(name, width, height);
     content.setGraphics(&graphics);
+
+    audio.create();
 }
 
 Game::~Game()
