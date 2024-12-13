@@ -19,3 +19,7 @@ target_link_libraries(Ex003_HelloSound PRIVATE gdfx)
 add_executable(Ex004_HelloMusic WIN32 Ex004_HelloMusic.cpp ${APP_ICON_RESOURCE_WINDOWS})
 target_link_libraries(Ex004_HelloMusic PRIVATE gdfx)
 
+# Example 005 - Hello Primitives
+add_executable(Ex005_HelloPrimitives WIN32 Ex005_HelloPrimitives.cpp ${APP_ICON_RESOURCE_WINDOWS})
+target_link_libraries(Ex005_HelloPrimitives PRIVATE gdfx)
+
