@@ -17,11 +17,12 @@ namespace gdfx {
 class Game {
 public:
     static Game *createGame(); // implement in derived class cpp via CREATE_GAME(MyGame);
+    static constexpr int DEFAULT_FRAMES_PER_SECOND = 60;
 
-    Game(const char *name, const char *identifier, const char *version, int width, int height);
+    Game(const char *name, const char *identifier, const char *version, int width, int height, int fps = DEFAULT_FRAMES_PER_SECOND);
     ~Game();
 
-    virtual void update() {}
+    virtual void update(float delta) {}
     virtual void draw(Graphics& g) {}
 
     void iterate();
@@ -36,6 +37,9 @@ public:
     int getWidth() const { return width; }
     int getHeight() const { return height; }
 
+protected:
+    ContentManager content;
+
 private:
     Graphics graphics;
     Audio audio;
@@ -45,9 +49,9 @@ private:
     std::string appVersion;
     int width;
     int height;
-    
-protected:
-    ContentManager content;
+    int framesPerSecond;
+    int msPerFrame;
+    uint64_t lastTime;
 };
 
 } // gdfx

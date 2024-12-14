@@ -20,7 +20,7 @@ class Graphics;
 */
 class ContentManager {
 public:
-    ContentManager() : resources() {}
+    ContentManager() : resources(), graphics(nullptr) {}
     ~ContentManager() {}
 
     // loads a new or existing content item

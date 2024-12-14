@@ -31,7 +31,7 @@ public:
         getInput().addActionKey("reset", Input::Key::SPACE);
     }
 
-    void update()
+    void update(float delta)
     {
         if (getInput().getActionPressed("left"))
             x--;

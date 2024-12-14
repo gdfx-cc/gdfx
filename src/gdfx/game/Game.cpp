@@ -5,7 +5,8 @@
 
 namespace gdfx {
 
-Game::Game(const char *name, const char *identifier, const char *version, int width, int height) :
+Game::Game(const char *name, const char *identifier, const char *version, int width, int height, int fps) :
+    content(),
     graphics(),
     audio(),
     input(),
@@ -14,7 +15,9 @@ Game::Game(const char *name, const char *identifier, const char *version, int wi
     appVersion(version),
     width(width),
     height(height),
-    content()
+    framesPerSecond(fps),
+    msPerFrame(1000 / framesPerSecond),
+    lastTime(0)
 {
     if (!SDL_SetAppMetadata(name, version, identifier))
         throw SDLException();
@@ -34,11 +37,20 @@ Game::~Game()
 
 void Game::iterate()
 {
-    input.poll((uint32_t)SDL_GetTicks());
-    update();
-    graphics.begin();
-    draw(graphics);
-    graphics.end();
+    input.poll((uint32_t)msPerFrame);
+
+    uint64_t currentTime = SDL_GetTicks();
+    if (currentTime - lastTime >= (uint64_t)msPerFrame) {
+        float delta = msPerFrame / 1000.0f;
+        
+        update(delta);
+
+        graphics.begin();
+        draw(graphics);
+        graphics.end();
+
+        lastTime = SDL_GetTicks();
+    }
 }
 
 } // gdfx
