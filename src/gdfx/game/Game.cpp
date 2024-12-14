@@ -8,6 +8,7 @@ namespace gdfx {
 Game::Game(const char *name, const char *identifier, const char *version, int width, int height) :
     graphics(),
     audio(),
+    input(),
     appName(name),
     appIdentifier(identifier),
     appVersion(version),
@@ -33,6 +34,7 @@ Game::~Game()
 
 void Game::iterate()
 {
+    input.poll((uint32_t)SDL_GetTicks());
     update();
     graphics.begin();
     draw(graphics);

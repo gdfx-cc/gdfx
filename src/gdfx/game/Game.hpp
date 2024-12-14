@@ -9,6 +9,7 @@
 #include <gdfx/platform/SDLException.hpp>
 #include <gdfx/graphics/Graphics.hpp>
 #include <gdfx/audio/Audio.hpp>
+#include <gdfx/input/Input.hpp>
 #include <gdfx/content/ContentManager.hpp>
 
 namespace gdfx {
@@ -27,6 +28,7 @@ public:
 
     Graphics& getGraphics() { return graphics; }
     Audio& getAudio() { return audio; }
+    Input& getInput() { return input; }
 
     const std::string& getAppName() const { return appName; }
     const std::string& getAppIdentifier() const { return appIdentifier; }
@@ -37,6 +39,7 @@ public:
 private:
     Graphics graphics;
     Audio audio;
+    Input input;
     std::string appName;
     std::string appIdentifier;
     std::string appVersion;

@@ -22,6 +22,8 @@ file(GLOB SOURCES
 	"src/gdfx/game/*.hpp"
 	"src/gdfx/graphics/*.cpp"
 	"src/gdfx/graphics/*.hpp"
+	"src/gdfx/input/*.cpp"
+	"src/gdfx/input/*.hpp"
 	"src/gdfx/math/*.cpp"
 	"src/gdfx/math/*.hpp"
 	"src/gdfx/platform/*.cpp"
