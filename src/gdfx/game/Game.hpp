@@ -30,6 +30,7 @@ public:
     Graphics& getGraphics() { return graphics; }
     Audio& getAudio() { return audio; }
     Input& getInput() { return input; }
+    ContentManager& getContent() { return content; }
 
     const std::string& getAppName() const { return appName; }
     const std::string& getAppIdentifier() const { return appIdentifier; }
@@ -38,12 +39,12 @@ public:
     int getHeight() const { return height; }
 
 protected:
-    ContentManager content;
-
-private:
     Graphics graphics;
     Audio audio;
     Input input;
+    ContentManager content;
+
+private:
     std::string appName;
     std::string appIdentifier;
     std::string appVersion;

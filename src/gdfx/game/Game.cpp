@@ -6,10 +6,10 @@
 namespace gdfx {
 
 Game::Game(const char *name, const char *identifier, const char *version, int width, int height, int fps) :
-    content(),
     graphics(),
     audio(),
     input(),
+    content(),
     appName(name),
     appIdentifier(identifier),
     appVersion(version),

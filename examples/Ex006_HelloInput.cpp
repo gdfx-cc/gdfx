@@ -12,38 +12,38 @@ public:
         x(getWidth() / 2),
         y(getHeight() / 2)
     {
-        getInput().addActionKey("left", Input::Key::LEFT);
-        getInput().addActionKey("right", Input::Key::RIGHT);
-        getInput().addActionKey("up", Input::Key::UP);
-        getInput().addActionKey("down", Input::Key::DOWN);
+        input.addActionKey("left", Input::Key::LEFT);
+        input.addActionKey("right", Input::Key::RIGHT);
+        input.addActionKey("up", Input::Key::UP);
+        input.addActionKey("down", Input::Key::DOWN);
 
-        getInput().addActionAxis("left", Input::GamepadAxis::LEFTX, -1, 0.25);
-        getInput().addActionAxis("right", Input::GamepadAxis::LEFTX, 1, 0.25);
-        getInput().addActionAxis("up", Input::GamepadAxis::LEFTY, -1, 0.25);
-        getInput().addActionAxis("down", Input::GamepadAxis::LEFTY, 1, 0.25);
+        input.addActionAxis("left", Input::GamepadAxis::LEFTX, -1, 0.25);
+        input.addActionAxis("right", Input::GamepadAxis::LEFTX, 1, 0.25);
+        input.addActionAxis("up", Input::GamepadAxis::LEFTY, -1, 0.25);
+        input.addActionAxis("down", Input::GamepadAxis::LEFTY, 1, 0.25);
 
-        getInput().addActionButton("left", Input::GamepadButton::DPAD_LEFT);
-        getInput().addActionButton("right", Input::GamepadButton::DPAD_RIGHT);
-        getInput().addActionButton("up", Input::GamepadButton::DPAD_UP);
-        getInput().addActionButton("down", Input::GamepadButton::DPAD_DOWN);
+        input.addActionButton("left", Input::GamepadButton::DPAD_LEFT);
+        input.addActionButton("right", Input::GamepadButton::DPAD_RIGHT);
+        input.addActionButton("up", Input::GamepadButton::DPAD_UP);
+        input.addActionButton("down", Input::GamepadButton::DPAD_DOWN);
 
-        getInput().addActionButton("reset", Input::GamepadButton::SOUTH);
-        getInput().addActionKey("reset", Input::Key::SPACE);
+        input.addActionButton("reset", Input::GamepadButton::SOUTH);
+        input.addActionKey("reset", Input::Key::SPACE);
     }
 
     void update(float delta)
     {
-        if (getInput().getActionPressed("left"))
+        if (input.getActionPressed("left"))
             x--;
-        if (getInput().getActionPressed("right"))
+        if (input.getActionPressed("right"))
             x++;
 
-        if (getInput().getActionPressed("up"))
+        if (input.getActionPressed("up"))
             y--;
-        if (getInput().getActionPressed("down"))
+        if (input.getActionPressed("down"))
             y++;
 
-        if (getInput().getActionPressed("reset")) {
+        if (input.getActionPressed("reset")) {
             x = getWidth() / 2;
             y = getHeight() / 2;
         }
