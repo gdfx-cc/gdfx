@@ -18,7 +18,7 @@ public:
     void draw(Graphics& g)
     {
         g.clear();
-        g.drawImage(*image, 45, 45);
+        g.drawImage(*image, getWidth()/2 - image->getWidth()/2, getHeight()/2 - image->getHeight()/2);
     }
 
 private:
