@@ -11,16 +11,16 @@ namespace gdfx {
  */
 class Rectangle {
 public:
-	float x;
-	float y;
-	float w;
-	float h;
+	int x;
+	int y;
+	int w;
+	int h;
 
 	Rectangle() : x(0), y(0), w(0), h(0) {}
 	Rectangle(const Rectangle& r) : x(r.x), y(r.y), w(r.w), h(r.h) {}
-	Rectangle(const float& nx, const float& ny, const float& nw, const float& nh) : x(nx), y(ny), w(nw), h(nh) {}
+	Rectangle(int nx, int ny, int nw, int nh) : x(nx), y(ny), w(nw), h(nh) {}
 
-	Rectangle& set(const float& nx, const float& ny, const float& nw, const float& nh)
+	Rectangle& set(int nx, int ny, int nw, int nh)
 	{
 		x = nx; y = ny; w = nw; h = nh;
 		return *this;

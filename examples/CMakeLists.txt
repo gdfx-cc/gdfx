@@ -27,4 +27,6 @@ target_link_libraries(Ex005_HelloPrimitives PRIVATE gdfx)
 add_executable(Ex006_HelloInput WIN32 Ex006_HelloInput.cpp ${APP_ICON_RESOURCE_WINDOWS})
 target_link_libraries(Ex006_HelloInput PRIVATE gdfx)
 
-
+# Example 007 - Hello Animation
+add_executable(Ex007_HelloAnimation WIN32 Ex007_HelloAnimation.cpp ${APP_ICON_RESOURCE_WINDOWS})
+target_link_libraries(Ex007_HelloAnimation PRIVATE gdfx)
