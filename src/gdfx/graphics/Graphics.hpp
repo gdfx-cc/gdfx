@@ -5,6 +5,7 @@
 #define __GDFX_GRAPHICS_GRAPHICS_HPP__
 
 #include <gdfx/platform/SDL3.hpp>
+#include <gdfx/graphics/Color.hpp>
 #include <gdfx/graphics/Image.hpp>
 #include <gdfx/graphics/ImageRegion.hpp>
 #include <gdfx/graphics/Sprite.hpp>
@@ -23,6 +24,7 @@ public:
     void end();
 
     void setColor(int red, int green, int blue, int alpha = 255);
+    void setColor(const Color& color);
     void clear();
 
     void drawText(const char *text, int x, int y);

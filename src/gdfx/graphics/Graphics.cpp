@@ -77,6 +77,11 @@ void Graphics::setColor(int red, int green, int blue, int alpha)
     SDL_SetRenderDrawColor(renderer, red, green, blue, alpha);
 }
 
+void Graphics::setColor(const Color& color)
+{
+    SDL_SetRenderDrawColor(renderer, color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
+}
+
 void Graphics::clear()
 {
     SDL_RenderClear(renderer);

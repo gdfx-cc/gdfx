@@ -14,26 +14,26 @@ public:
 
     void draw(Graphics& g)
     {
-        g.setColor(0, 32, 192);
+        g.setColor(Color::C64::DARK_GRAY);
         g.clear();
 
-        g.setColor(0, 0, 255);
+        g.setColor(Color::C64::LIGHT_BLUE);
         g.drawLine(10, 10, 100, 100);
 
-        g.setColor(0, 255, 0);
+        g.setColor(Color::C64::GREEN);
         g.drawRect(20, 20, 50, 50);
 
-        g.setColor(255, 255, 255);
+        g.setColor(Color::C64::WHITE);
         g.drawFilledRect(80, 80, 20, 20);
 
-        g.setColor(255, 0, 0);
+        g.setColor(Color::C64::RED);
         g.drawTriangle(65, 80, 120, 90, 100, 170);
         g.drawFilledTriangle(125, 90, 180, 100, 160, 175);
 
-        g.setColor(0, 255, 0);
+        g.setColor(Color::C64::GREEN);
         g.drawCircle(100, 100, 55);
 
-        g.setColor(0, 0, 128);
+        g.setColor(Color::C64::BLUE);
         g.drawFilledCircle(200, 100, 32);
 
         Vector2 controlPoints[4] = {

@@ -23,7 +23,7 @@ public:
 
     void draw(Graphics& g)
     {
-        g.setColor(0, 128, 64);
+        g.setColor(Color::C64::ORANGE);
         g.clear();
 
         g.drawSprite(sprite, 0, 0);

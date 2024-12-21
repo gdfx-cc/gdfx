@@ -51,13 +51,13 @@ public:
 
     void draw(Graphics& g)
     {
-        g.setColor(0, 64, 64);
+        g.setColor(Color::C64::YELLOW);
         g.clear();
 
-        g.setColor(255, 0, 0);
+        g.setColor(Color::C64::RED);
         g.drawFilledCircle(x, y, 20);
 
-        g.setColor(255, 255, 255);
+        g.setColor(Color::C64::WHITE);
         g.drawText("Move analog stick or press DPad or arrow keys to move.", 10, 10);
         g.drawText("Press SPACE or 'SOUTH' gamepad button to reset circle.", 10, 20);
     }

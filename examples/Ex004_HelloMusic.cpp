@@ -18,7 +18,7 @@ public:
 
     void draw(Graphics& g)
     {
-        g.setColor(0, 255, 0);
+        g.setColor(Color::C64::GREEN);
         g.clear();
     }
 

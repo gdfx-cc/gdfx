@@ -16,7 +16,7 @@ public:
         g.setColor(0, 32, 192);
         g.clear();
 
-        g.setColor(255, 255, 255);
+        g.setColor(Color::C64::WHITE);
         g.drawText("Hello World!", 0, 0);
     }
 };
