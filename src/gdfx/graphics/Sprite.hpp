@@ -8,7 +8,6 @@
 #include <unordered_map>
 #include <memory>
 
-#include <gdfx/graphics/Graphics.hpp>
 #include <gdfx/graphics/Animation.hpp>
 #include <gdfx/graphics/ImageRegion.hpp>
 
@@ -25,7 +24,6 @@ public:
 	virtual ~Sprite();
 
 	void update(float delta);
-	void draw(Graphics& g, int x, int y);
 
 	void addFrames(const std::string& name, std::shared_ptr<Image> image, int x, int y, int w, int h, int count, int delayMillis, SpriteAnimation::Type type = SpriteAnimation::Type::FORWARD);
 	void addAnimation(const std::string& name, SpriteAnimation& anim);

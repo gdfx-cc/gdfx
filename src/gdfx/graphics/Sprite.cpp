@@ -22,11 +22,6 @@ void Sprite::update(float delta)
 		animations[currentAnimation].update(delta);
 }
 
-void Sprite::draw(Graphics& g, int x, int y)
-{
-	g.drawImageRegion(getFrameImageRegion(), x, y);
-}
-
 void Sprite::addFrames(const std::string& name, std::shared_ptr<Image> image, int x, int y, int w, int h, int count, int delayMillis, SpriteAnimation::Type type)
 {
 	SpriteAnimation anim;

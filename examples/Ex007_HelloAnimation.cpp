@@ -26,7 +26,7 @@ public:
         g.setColor(0, 128, 64);
         g.clear();
 
-        sprite.draw(g, 0, 0);
+        g.drawSprite(sprite, 0, 0);
     }
 
 private:

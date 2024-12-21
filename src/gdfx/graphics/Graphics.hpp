@@ -7,6 +7,7 @@
 #include <gdfx/platform/SDL3.hpp>
 #include <gdfx/graphics/Image.hpp>
 #include <gdfx/graphics/ImageRegion.hpp>
+#include <gdfx/graphics/Sprite.hpp>
 
 namespace gdfx {
 
@@ -30,8 +31,10 @@ public:
     void drawRect(int x, int y, int w, int h);
     void drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3);
     void drawCircle(int x, int y, int radius);
+    
     void drawImage(Image& img, int x, int y);
     void drawImageRegion(ImageRegion& imageRegion, int x, int y);
+    void drawSprite(Sprite& sprite, int x, int y);
 
     void drawFilledRect(int x, int y, int w, int h);
     void drawFilledTriangle(int x1, int y1, int x2, int y2, int x3, int y3);

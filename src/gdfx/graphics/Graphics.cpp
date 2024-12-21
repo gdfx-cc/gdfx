@@ -159,6 +159,11 @@ void Graphics::drawImageRegion(ImageRegion& imageRegion, int x, int y)
     SDL_RenderTexture(renderer, imageRegion.getImage()->getTexture(), &src, &dst);
 }
 
+void Graphics::drawSprite(Sprite& sprite, int x, int y)
+{
+	drawImageRegion(sprite.getFrameImageRegion(), x, y);
+}
+
 void Graphics::drawFilledRect(int x, int y, int w, int h)
 {
     SDL_FRect rect{ (float)x, (float)y, (float)w, (float)h };
