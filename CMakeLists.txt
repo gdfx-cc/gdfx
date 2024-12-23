@@ -53,7 +53,7 @@ add_library(${PROJECT_NAME}
 	${SOURCES}
 )
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 target_include_directories(${PROJECT_NAME} PUBLIC src)
 target_link_libraries(${PROJECT_NAME} PUBLIC SDL3::SDL3 SDL3_mixer::SDL3_mixer)
 
