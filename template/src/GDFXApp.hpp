@@ -19,6 +19,10 @@ public:
 
 private:
 	std::shared_ptr<Texture> logo;
+	std::shared_ptr<Font> font;
+    int x, y;
+    int bx, by;
+    int xdir, ydir;
 };
 
 #endif // GDFX_APP_HPP

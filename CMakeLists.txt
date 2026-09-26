@@ -59,4 +59,3 @@ target_link_libraries(${PROJECT_NAME} PUBLIC SDL3::SDL3 SDL3_mixer::SDL3_mixer)
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/")
 
-add_subdirectory(games)
