@@ -9,6 +9,7 @@ The GDFX Game Framework is a C++ cross-platform game development framework.
 Clone the repository with submodules, then build with CMake presets:
 
 ```bash
+git clone git@github.com:gdfx-cc/gdfx.git
 git submodule update --init --recursive
 ./scripts/build.sh debug
 ```
