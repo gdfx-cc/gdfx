@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 // FastNoise.hpp
 //
@@ -31,8 +31,8 @@
 
 // VERSION: 0.4.1
 
-#ifndef __GDFX_MATH_FASTNOISE_HPP__
-#define __GDFX_MATH_FASTNOISE_HPP__
+#ifndef GDFX_MATH_FASTNOISE_HPP
+#define GDFX_MATH_FASTNOISE_HPP
 
 namespace gdfx {
 
@@ -316,4 +316,4 @@ private:
 
 } // gdfx
 
-#endif // __GDFX_MATH_FASTNOISE_HPP__
+#endif // GDFX_MATH_FASTNOISE_HPP

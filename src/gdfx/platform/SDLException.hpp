@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_PLATFORM_SDLEXCEPTION_HPP__
-#define __GDFX_PLATFORM_SDLEXCEPTION_HPP__
+#ifndef GDFX_PLATFORM_SDLEXCEPTION_HPP
+#define GDFX_PLATFORM_SDLEXCEPTION_HPP
 
 #include <stdexcept>
 #include <gdfx/platform/SDL3.hpp>
@@ -16,4 +16,4 @@ public:
 
 } // gdfx
 
-#endif // __GDFX_PLATFORM_SDLEXCEPTION_HPP__
+#endif // GDFX_PLATFORM_SDLEXCEPTION_HPP

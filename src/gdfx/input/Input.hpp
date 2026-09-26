@@ -1,12 +1,13 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_INPUT_INPUT_HPP__
-#define __GDFX_INPUT_INPUT_HPP__
+#ifndef GDFX_INPUT_INPUT_HPP
+#define GDFX_INPUT_INPUT_HPP
 
 #include <stdint.h>
 #include <unordered_map>
 #include <string>
+#include <vector>
 
 #include <gdfx/platform/SDL3.hpp>
 
@@ -112,7 +113,7 @@ private:
 private:
 	ActionMap actions;
 	SDL_Gamepad *gamepad;
-	bool *keyboardState;
+	std::vector<uint8_t> keyboardState;
 	float axisState[SDL_GAMEPAD_AXIS_COUNT];
 	float prevAxisState[SDL_GAMEPAD_AXIS_COUNT];
 	bool buttonState[SDL_GAMEPAD_BUTTON_COUNT];
@@ -121,4 +122,4 @@ private:
 
 } // gdfx
 
-#endif // __GDFX_INPUT_INPUT_HPP__
+#endif // GDFX_INPUT_INPUT_HPP

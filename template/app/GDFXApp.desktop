@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=GDFXApp
+Comment=A simple GDFX app
+Exec=GDFXApp
+Icon=appicon
+Terminal=false
+Categories=Game;

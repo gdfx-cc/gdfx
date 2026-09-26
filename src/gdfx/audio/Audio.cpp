@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 #include <gdfx/platform/SDL3.hpp>
 #include <gdfx/platform/SDLException.hpp>
@@ -8,6 +8,8 @@
 namespace gdfx {
 
 Audio::Audio() :
+	device(nullptr),
+	track(nullptr),
 	initialized(false)
 {
 }
@@ -21,9 +23,15 @@ void Audio::create()
 {
 	destroy();
 
-	if (Mix_OpenAudio(0, nullptr) < 0)
+	if (!MIX_Init())
 		throw SDLException();
-	if (Mix_AllocateChannels(1) < 0)
+
+	device = MIX_CreateMixerDevice(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, nullptr);
+	if (!device)
+		throw SDLException();
+
+	track = MIX_CreateTrack(device);
+	if (!track)
 		throw SDLException();
 
     initialized = true;
@@ -34,8 +42,13 @@ void Audio::destroy()
 	if (!initialized)
         return;
 
-    Mix_CloseAudio();
+	MIX_DestroyTrack(track);
+	track = nullptr;
 
+	MIX_DestroyMixer(device);
+	device = nullptr;
+
+    MIX_Quit();
     initialized = false;
 }
 

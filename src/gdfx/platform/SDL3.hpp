@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_PLATFORM_SDL3_HPP__
-#define __GDFX_PLATFORM_SDL3_HPP__
+#ifndef GDFX_PLATFORM_SDL3_HPP
+#define GDFX_PLATFORM_SDL3_HPP
 
 #include <SDL3/SDL.h>
 #include <SDL3_mixer/SDL_mixer.h>
 
-#endif // __GDFX_PLATFORM_SDL3_HPP__
+#endif // GDFX_PLATFORM_SDL3_HPP

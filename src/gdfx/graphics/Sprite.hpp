@@ -1,19 +1,19 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_GRAPHICS_SPRITE_HPP__
-#define __GDFX_GRAPHICS_SPRITE_HPP__
+#ifndef GDFX_GRAPHICS_SPRITE_HPP
+#define GDFX_GRAPHICS_SPRITE_HPP
 
 #include <string>
 #include <unordered_map>
 #include <memory>
 
 #include <gdfx/graphics/Animation.hpp>
-#include <gdfx/graphics/ImageRegion.hpp>
+#include <gdfx/graphics/TextureRegion.hpp>
 
 namespace gdfx {
 
-typedef Animation<ImageRegion> SpriteAnimation;
+typedef Animation<TextureRegion> SpriteAnimation;
 
 /**
 * Sprite
@@ -25,10 +25,10 @@ public:
 
 	void update(float delta);
 
-	void addFrames(const std::string& name, std::shared_ptr<Image> image, int x, int y, int w, int h, int count, int delayMillis, SpriteAnimation::Type type = SpriteAnimation::Type::FORWARD);
+	void addFrames(const std::string& name, std::shared_ptr<Texture> texture, int x, int y, int w, int h, int count, int delayMillis, SpriteAnimation::Type type = SpriteAnimation::Type::FORWARD);
 	void addAnimation(const std::string& name, SpriteAnimation& anim);
 
-	ImageRegion& getFrameImageRegion()
+	TextureRegion& getFrameTextureRegion()
 	{
 		auto it = animations.find(currentAnimation);
 		return it->second.getFrameData();
@@ -48,4 +48,4 @@ private:
 
 } // gdfx
 
-#endif // __GDFX_GRAPHICS_SPRITE_HPP__
+#endif // GDFX_GRAPHICS_SPRITE_HPP

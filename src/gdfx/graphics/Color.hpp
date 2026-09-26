@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_GRAPHICS_COLOR_HPP__
-#define __GDFX_GRAPHICS_COLOR_HPP__
+#ifndef GDFX_GRAPHICS_COLOR_HPP
+#define GDFX_GRAPHICS_COLOR_HPP
 
 #include <cstdint>
 #include <cstring>
@@ -130,4 +130,4 @@ public:
 
 } // gdfx
 
-#endif // __GDFX_GRAPHICS_COLOR_HPP__
+#endif // GDFX_GRAPHICS_COLOR_HPP

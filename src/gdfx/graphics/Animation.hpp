@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_GRAPHICS_ANIMATION_HPP__
-#define __GDFX_GRAPHICS_ANIMATION_HPP__
+#ifndef GDFX_GRAPHICS_ANIMATION_HPP
+#define GDFX_GRAPHICS_ANIMATION_HPP
 
 #include <vector>
 
@@ -186,4 +186,4 @@ private:
 
 } // gdfx
 
-#endif // __GDFX_GRAPHICS_ANIMATION_HPP__
+#endif // GDFX_GRAPHICS_ANIMATION_HPP

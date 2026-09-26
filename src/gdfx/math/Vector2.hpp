@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_MATH_VECTOR2_HPP__
-#define __GDFX_MATH_VECTOR2_HPP__
+#ifndef GDFX_MATH_VECTOR2_HPP
+#define GDFX_MATH_VECTOR2_HPP
 
 #include <cmath>
 #include <gdfx/math/Math.hpp>
@@ -167,4 +167,4 @@ inline Vector2 operator*(float k, const Vector2& v)
 
 } // gdfx
 
-#endif // __GDFX_MATH_VECTOR2_HPP__
+#endif // GDFX_MATH_VECTOR2_HPP

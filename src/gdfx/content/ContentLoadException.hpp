@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_PLATFORM_CONTENTLOADEXCEPTION_HPP__
-#define __GDFX_PLATFORM_CONTENTLOADEXCEPTION_HPP__
+#ifndef GDFX_PLATFORM_CONTENTLOADEXCEPTION_HPP
+#define GDFX_PLATFORM_CONTENTLOADEXCEPTION_HPP
 
 #include <stdexcept>
 
@@ -15,4 +15,4 @@ public:
 
 } // gdfx
 
-#endif // __GDFX_PLATFORM_CONTENTLOADEXCEPTION_HPP__
+#endif // GDFX_PLATFORM_CONTENTLOADEXCEPTION_HPP

@@ -1,8 +1,10 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_MATH_RECTANGLE_HPP__
-#define __GDFX_MATH_RECTANGLE_HPP__
+#ifndef GDFX_MATH_RECTANGLE_HPP
+#define GDFX_MATH_RECTANGLE_HPP
+
+#include <algorithm>
 
 namespace gdfx {
 
@@ -39,16 +41,25 @@ public:
 
 	bool intersects(const Rectangle& r) const
 	{
-		if (x + w < r.x)
-			return false;
-		if (x > r.x + r.w)
-			return false;
+		return (r.x < x + w &&
+				x < r.x + r.w &&
+				r.y < y + h &&
+				y < r.y + r.h);
+	}
 
-		if (y + h < r.y)
+	static bool intersect(const Rectangle& r1, const Rectangle& r2, Rectangle& result)
+	{
+		if (!r1.intersects(r2)) {
+			result.makeZero();
 			return false;
-		if (y > r.y + r.h)
-			return false;
+		}
 
+		const int right = std::min(r1.x + r1.w, r2.x + r2.w);
+		const int left = std::max(r1.x, r2.x);
+		const int top = std::max(r1.y, r2.y);
+		const int bottom = std::min(r1.y + r1.h, r2.y + r2.h);
+
+		result.set(left, top, right - left, bottom - top);
 		return true;
 	}
 
@@ -70,4 +81,4 @@ public:
 
 } // gdfx
 
-#endif // __GDFX_MATH_RECTANGLE_HPP__
+#endif // GDFX_MATH_RECTANGLE_HPP

@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 #include <gdfx/game/Game.hpp>
 
@@ -16,8 +16,8 @@ Game::Game(const char *name, const char *identifier, const char *version, int wi
     width(width),
     height(height),
     framesPerSecond(fps),
-    msPerFrame(1000 / framesPerSecond),
-    lastTime(0)
+    targetDelta(1.0 / framesPerSecond),
+    lastTimeNS(0)
 {
     if (!SDL_SetAppMetadata(name, version, identifier))
         throw SDLException();
@@ -37,20 +37,23 @@ Game::~Game()
 
 void Game::iterate()
 {
-    input.poll((uint32_t)msPerFrame);
-
-    uint64_t currentTime = SDL_GetTicks();
-    if (currentTime - lastTime >= (uint64_t)msPerFrame) {
-        float delta = msPerFrame / 1000.0f;
-        
-        update(delta);
-
-        graphics.begin();
-        draw(graphics);
-        graphics.end();
-
-        lastTime = SDL_GetTicks();
+    uint64_t currentTimeNS = SDL_GetTicksNS();
+    if (lastTimeNS == 0) {
+        lastTimeNS = currentTimeNS;
     }
+
+    double delta = (currentTimeNS - lastTimeNS) / 1000000000.0;
+    if (delta > 0.25) {
+        delta = targetDelta;
+    }
+    lastTimeNS = currentTimeNS;
+
+    input.poll((uint32_t)(delta * 1000.0));
+    update((float)delta);
+
+    graphics.begin();
+    draw(graphics);
+    graphics.end();
 }
 
 } // gdfx

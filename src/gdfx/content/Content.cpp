@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 #include <gdfx/platform/SDL3.hpp>
 #include <gdfx/content/Content.hpp>

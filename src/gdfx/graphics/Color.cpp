@@ -1,11 +1,13 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 #include <gdfx/graphics/Color.hpp>
 
 namespace gdfx {
 
 const Color Color::NONE                 (0x00, 0x00, 0x00, 0x00);
+const Color Color::BLACK                (0x00, 0x00, 0x00);
+const Color Color::WHITE                (0xFF, 0xFF, 0xFF);
 
 // These are values from Aseprite's C64 palette
 const Color Color::C64::BLACK           (0x00, 0x00, 0x00);

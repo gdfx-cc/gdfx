@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_MATH_BEZIER_HPP__
-#define __GDFX_MATH_BEZIER_HPP__
+#ifndef GDFX_MATH_BEZIER_HPP
+#define GDFX_MATH_BEZIER_HPP
 
 #include <vector>
 #include <gdfx/math/Vector2.hpp>
@@ -22,4 +22,4 @@ public:
 
 } // gdfx
 
-#endif // __GDFX_MATH_BEZIER_HPP__
+#endif // GDFX_MATH_BEZIER_HPP

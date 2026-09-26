@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 #include <gdfx/audio/Sound.hpp>
 #include <gdfx/platform/SDLException.hpp>
@@ -9,7 +9,7 @@ namespace gdfx {
 
 Sound::Sound() :
     Content(),
-    chunk(nullptr)
+    audio(nullptr)
 {
 }
 
@@ -22,27 +22,27 @@ bool Sound::load()
 {
     unload();
 
-    chunk = Mix_LoadWAV(getFullPath().c_str());
-    if (!chunk)
-        return false;
+    //audio = MIX_LoadAudio(device, getFullPath().c_str(), true);
+    //if (!audio)
+    //    return false;
 	
 	return true;
 }
 
 void Sound::unload()
 {
-    if (chunk) {
-        Mix_FreeChunk(chunk);
-        chunk = nullptr;
-    }
+    //if (audio) {
+    //    MIX_DestroyAudio(audio);
+    //    audio = nullptr;
+    //}
 }
 
 void Sound::play()
 {
-    if (!chunk)
+    if (!audio)
         return;
 
-    Mix_PlayChannel(-1, chunk, 1);
+    //Mix_PlayChannel(-1, audio, 1);
 }
 
 } // gdfx

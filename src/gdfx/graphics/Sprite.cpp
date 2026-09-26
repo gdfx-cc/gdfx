@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 
 #include <gdfx/graphics/Sprite.hpp>
@@ -22,7 +22,7 @@ void Sprite::update(float delta)
 		animations[currentAnimation].update(delta);
 }
 
-void Sprite::addFrames(const std::string& name, std::shared_ptr<Image> image, int x, int y, int w, int h, int count, int delayMillis, SpriteAnimation::Type type)
+void Sprite::addFrames(const std::string& name, std::shared_ptr<Texture> texture, int x, int y, int w, int h, int count, int delayMillis, SpriteAnimation::Type type)
 {
 	SpriteAnimation anim;
 
@@ -31,9 +31,9 @@ void Sprite::addFrames(const std::string& name, std::shared_ptr<Image> image, in
 	int sx = x;
 	int sy = y;
 	for (int i = 0; i < count; i++) {
-		anim.addFrame(ImageRegion(image, sx, sy, w, h), delayMillis);
+		anim.addFrame(TextureRegion(texture, sx, sy, w, h), delayMillis);
 		sx += w;
-		if (sx >= image->getWidth()) {
+		if (sx >= texture->getWidth()) {
 			sx = 0;
 			sy += h;
 		}

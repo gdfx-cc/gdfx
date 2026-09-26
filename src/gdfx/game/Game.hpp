@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_GAME_GAME_HPP__
-#define __GDFX_GAME_GAME_HPP__
+#ifndef GDFX_GAME_GAME_HPP
+#define GDFX_GAME_GAME_HPP
 
 #include <string>
 #include <gdfx/platform/SDL3.hpp>
@@ -20,7 +20,7 @@ public:
     static constexpr int DEFAULT_FRAMES_PER_SECOND = 60;
 
     Game(const char *name, const char *identifier, const char *version, int width, int height, int fps = DEFAULT_FRAMES_PER_SECOND);
-    ~Game();
+    virtual ~Game();
 
     virtual void update(float delta) {}
     virtual void draw(Graphics& g) {}
@@ -51,12 +51,12 @@ private:
     int width;
     int height;
     int framesPerSecond;
-    int msPerFrame;
-    uint64_t lastTime;
+    double targetDelta;
+    uint64_t lastTimeNS;
 };
 
 } // gdfx
 
-#define CREATE_GAME(MyClass) gdfx::Game *gdfx::Game::createGame() { return new MyClass(); }
+#define CREATE_GAME(MyClass) ::gdfx::Game *gdfx::Game::createGame() { return new MyClass(); }
 
-#endif // __GDFX_GAME_GAME_HPP__
+#endif // GDFX_GAME_GAME_HPP

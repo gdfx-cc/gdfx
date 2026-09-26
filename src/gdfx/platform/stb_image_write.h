@@ -135,7 +135,7 @@ CREDITS:
       github:poppolopoppo
       Patrick Boettcher
       github:xeekworx
-      Cap Petschulat
+      Cap Petsgdfxt
       Simon Rodriguez
       Ivan Tikhonov
       github:ignotion

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.21)
 
 project(gdfx)
 
@@ -11,9 +11,7 @@ else()
 	add_subdirectory(src/SDL_mixer EXCLUDE_FROM_ALL)
 endif()
 
-set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/appicon.rc")
-
-file(GLOB SOURCES
+file(GLOB SOURCES CONFIGURE_DEPENDS
 	"src/gdfx/audio/*.cpp"
 	"src/gdfx/audio/*.hpp"
 	"src/gdfx/content/*.cpp"
@@ -22,6 +20,8 @@ file(GLOB SOURCES
 	"src/gdfx/game/*.hpp"
 	"src/gdfx/graphics/*.cpp"
 	"src/gdfx/graphics/*.hpp"
+	"src/gdfx/graphics/canvas/*.cpp"
+	"src/gdfx/graphics/canvas/*.hpp"
 	"src/gdfx/input/*.cpp"
 	"src/gdfx/input/*.hpp"
 	"src/gdfx/math/*.cpp"
@@ -29,8 +29,8 @@ file(GLOB SOURCES
 	"src/gdfx/platform/*.cpp"
 	"src/gdfx/platform/*.h"
 	"src/gdfx/platform/*.hpp"
-	"src/gdfx/*.cpp"
-	"src/gdfx/*.hpp"
+	"src/gdfx/util/*.cpp"
+	"src/gdfx/util/*.hpp"
 )
 
 function(assign_source_group)
@@ -59,4 +59,4 @@ target_link_libraries(${PROJECT_NAME} PUBLIC SDL3::SDL3 SDL3_mixer::SDL3_mixer)
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/")
 
-add_subdirectory(examples)
+add_subdirectory(games)

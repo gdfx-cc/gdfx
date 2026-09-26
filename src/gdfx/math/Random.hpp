@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 /*
    MT19937 - Mersenne Twister - 2002/1/26
@@ -36,8 +36,8 @@
    NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-#ifndef __GDFX_MATH_RANDOM_HPP__
-#define __GDFX_MATH_RANDOM_HPP__
+#ifndef GDFX_MATH_RANDOM_HPP
+#define GDFX_MATH_RANDOM_HPP
 
 #include <cstdint>
 
@@ -140,5 +140,5 @@ typedef RandomMersenne32 Random;
 
 } // gdfx
 
-#endif // __GDFX_MATH_RANDOM_HPP__
+#endif // GDFX_MATH_RANDOM_HPP
 

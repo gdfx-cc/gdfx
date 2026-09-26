@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_MATH_VECTOR3_HPP__
-#define __GDFX_MATH_VECTOR3_HPP__
+#ifndef GDFX_MATH_VECTOR3_HPP
+#define GDFX_MATH_VECTOR3_HPP
 
 #include <cmath>
 
@@ -195,4 +195,4 @@ inline Vector3 operator*(float k, const Vector3& v)
 
 } // gdfx
 
-#endif // __GDFX_MATH_VECTOR3_HPP__
+#endif // GDFX_MATH_VECTOR3_HPP

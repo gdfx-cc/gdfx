@@ -1,8 +1,10 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_AUDIO_AUDIO_HPP__
-#define __GDFX_AUDIO_AUDIO_HPP__
+#ifndef GDFX_AUDIO_AUDIO_HPP
+#define GDFX_AUDIO_AUDIO_HPP
+
+#include <gdfx/platform/SDL3.hpp>
 
 namespace gdfx {
 
@@ -15,9 +17,11 @@ public:
 	void destroy();
 
 private:
+	MIX_Mixer *device;
+	MIX_Track *track;
 	bool initialized;
 };
 
 } // gdfx
 
-#endif // __GDFX_AUDIO_AUDIO_HPP__
+#endif // GDFX_AUDIO_AUDIO_HPP

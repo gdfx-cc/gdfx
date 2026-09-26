@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_CONTENT_CONTENTMANAGER_HPP__
-#define __GDFX_CONTENT_CONTENTMANAGER_HPP__
+#ifndef GDFX_CONTENT_CONTENTMANAGER_HPP
+#define GDFX_CONTENT_CONTENTMANAGER_HPP
 
 #include <string>
 #include <memory>
@@ -60,4 +60,4 @@ private:
 
 } // gdfx
 
-#endif // __GDFX_CONTENT_CONTENTMANAGER_HPP__
+#endif // GDFX_CONTENT_CONTENTMANAGER_HPP

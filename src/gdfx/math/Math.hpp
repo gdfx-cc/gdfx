@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
-#ifndef __GDFX_MATH_MATH_HPP__
-#define __GDFX_MATH_MATH_HPP__
+#ifndef GDFX_MATH_MATH_HPP
+#define GDFX_MATH_MATH_HPP
 
 namespace gdfx {
 
@@ -51,5 +51,5 @@ public:
 
 } // gdfx
 
-#endif // __GDFX_MATH_MATH_HPP__
+#endif // GDFX_MATH_MATH_HPP
 

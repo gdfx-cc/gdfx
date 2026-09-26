@@ -1,7 +1,8 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 #include <iostream>
+#include <string>
 #include <gdfx/platform/SDL3.hpp>
 #include <gdfx/game/Game.hpp>
 
@@ -22,7 +23,7 @@ SDL_AppResult SDL_AppInit(void **state, int argc, char **argv)
 	catch (const std::exception& e) {
 		std::string title(game ? game->getAppName(): "GDFX Game");
 		if (!SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, title.c_str(), e.what(), nullptr)) {
-			std::cerr << title << ": " << e.what() << std::endl;
+			std::cerr << title.c_str() << ": " << e.what() << std::endl;
 		}
 		return SDL_APP_FAILURE;
 	}
@@ -42,7 +43,7 @@ SDL_AppResult SDL_AppIterate(void *state)
 	catch (const std::exception& e) {
 		std::string title(game ? game->getAppName(): "GDFX Game");
 		if (!SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, title.c_str(), e.what(), nullptr)) {
-			std::cerr << title << ": " << e.what() << std::endl;
+			std::cerr << title.c_str() << ": " << e.what() << std::endl;
 		}
 		return SDL_APP_FAILURE;
 	}
@@ -63,9 +64,9 @@ SDL_AppResult SDL_AppEvent(void *state, SDL_Event *event)
 		}
 	}
 	catch (const std::exception& e) {
-		std::string title(game ? game->getAppName(): "GDFX Game");
+		std::string title(game ? game->getAppName(): " Game");
 		if (!SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, title.c_str(), e.what(), nullptr)) {
-			std::cerr << title << ": " << e.what() << std::endl;
+			std::cerr << title.c_str() << ": " << e.what() << std::endl;
 		}
 		return SDL_APP_FAILURE;
 	}
@@ -86,7 +87,7 @@ void SDL_AppQuit(void *state, SDL_AppResult result)
 	catch (const std::exception& e) {
 		std::string title(game ? game->getAppName(): "GDFX Game");
 		if (!SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, title.c_str(), e.what(), nullptr)) {
-			std::cerr << title << ": " << e.what() << std::endl;
+			std::cerr << title.c_str() << ": " << e.what() << std::endl;
 		}
 	}
 }

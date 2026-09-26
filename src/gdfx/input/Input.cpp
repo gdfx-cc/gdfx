@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Copyright (C) GDFX Authors
+// Copyright (C) 2026 GDFX Authors
 //-----------------------------------------------------------------------------
 #include <gdfx/input/Input.hpp>
 
@@ -8,7 +8,7 @@ namespace gdfx {
 Input::Input() :
 	actions{},
 	gamepad{ nullptr },
-	keyboardState{ nullptr },
+	keyboardState{},
 	axisState{},
 	prevAxisState{},
 	buttonState{},
@@ -21,11 +21,6 @@ Input::~Input()
 	if (gamepad) {
 		SDL_CloseGamepad(gamepad);
 		gamepad = nullptr;
-	}
-
-	if (keyboardState) {
-		delete[] keyboardState;
-		keyboardState = nullptr;
 	}
 }
 
@@ -41,9 +36,7 @@ void Input::pollKeyboard()
 	int numKeys;
 	const bool *sdlKeyboardState = SDL_GetKeyboardState(&numKeys);
 	if (sdlKeyboardState) {
-		if (!keyboardState)
-			keyboardState = new bool[numKeys];
-		SDL_memcpy(keyboardState, sdlKeyboardState, numKeys * sizeof(bool));
+		keyboardState.assign(sdlKeyboardState, sdlKeyboardState + numKeys);
 	}
 }
 
@@ -111,7 +104,7 @@ void Input::pollAction(Action& action, uint32_t gameTimeElapsedMillis)
 	}
 
 	if (action.scanCode != SDL_SCANCODE_UNKNOWN && !state) {
-		state = keyboardState[action.scanCode];
+		state = isKeyPressed(action.scanCode);
 		strength = 1.0f;
 	}
 
@@ -224,7 +217,8 @@ bool Input::getActionPressed(const char *action)
 
 bool Input::isKeyPressed(SDL_Scancode scanCode)
 {
-	return keyboardState[scanCode];
+	const int key = static_cast<int>(scanCode);
+	return key >= 0 && key < static_cast<int>(keyboardState.size()) && keyboardState[key];
 }
 
 void Input::createAction(const std::string& key)
