@@ -1,3 +1,5 @@
+![logo](template/data/logo.png)
+
 # GDFX Game Framework
 
 The GDFX Game Framework is a C++ cross-platform game development framework.
