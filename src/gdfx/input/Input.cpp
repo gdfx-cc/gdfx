@@ -91,21 +91,23 @@ void Input::pollAction(Action& action, uint32_t gameTimeElapsedMillis)
 	float strength = 0.0f;
 	bool state = false;
 
-	if (action.axis != SDL_GAMEPAD_AXIS_INVALID) {
-		if ((std::abs(axisState[action.axis]) > std::abs(action.axisDeadzone)) && (action.axisDirection * axisState[action.axis]) > 0.0f) {
-			state = true;
-			strength = std::abs(axisState[action.axis]); // TODO take deadzone into account
+	for (auto& i : action.inputs) {
+		if (i.axis != SDL_GAMEPAD_AXIS_INVALID) {
+			if ((std::abs(axisState[i.axis]) > std::abs(i.axisDeadzone)) && (i.axisDirection * axisState[i.axis]) > 0.0f) {
+				state = true;
+				strength = std::abs(axisState[i.axis]); // TODO take deadzone into account
+			}
 		}
-	}
 
-	if (action.button != SDL_GAMEPAD_BUTTON_INVALID && !state) {
-		state = buttonState[action.button];
-		strength = 1.0f;
-	}
+		if (i.button != SDL_GAMEPAD_BUTTON_INVALID && !state) {
+			state = buttonState[i.button];
+			strength = 1.0f;
+		}
 
-	if (action.scanCode != SDL_SCANCODE_UNKNOWN && !state) {
-		state = isKeyPressed(action.scanCode);
-		strength = 1.0f;
+		if (i.scanCode != SDL_SCANCODE_UNKNOWN && !state) {
+			state = isKeyPressed(i.scanCode);
+			strength = 1.0f;
+		}
 	}
 
 	if (state) {
@@ -140,9 +142,12 @@ void Input::addActionAxis(const char *action, GamepadAxis axis, int direction, f
 	const std::string key(action);
 	createAction(key);
 
-	actions[key].axis = (SDL_GamepadAxis)axis;
-	actions[key].axisDirection = direction;
-	actions[key].axisDeadzone = deadzone;
+	ActionInput in;
+	in.axis = (SDL_GamepadAxis)axis;
+	in.axisDirection = direction;
+	in.axisDeadzone = deadzone;
+	
+	actions[key].inputs.push_back(in);
 }
 
 void Input::addActionButton(const char *action, GamepadButton button)
@@ -150,7 +155,10 @@ void Input::addActionButton(const char *action, GamepadButton button)
 	const std::string key(action);
 	createAction(key);
 
-	actions[key].button = (SDL_GamepadButton)button;
+	ActionInput in;
+	in.button = (SDL_GamepadButton)button;
+
+	actions[key].inputs.push_back(in);
 }
 
 void Input::addActionKey(const char *action, Key scanCode)
@@ -158,7 +166,10 @@ void Input::addActionKey(const char *action, Key scanCode)
 	const std::string key(action);
 	createAction(key);
 
-	actions[key].scanCode = (SDL_Scancode)scanCode;
+	ActionInput in;
+	in.scanCode = (SDL_Scancode)scanCode;
+
+	actions[key].inputs.push_back(in);
 }
 
 void Input::setActionRepeatEnabled(const char *action, bool enable)
@@ -188,6 +199,11 @@ bool Input::getActionState(const char *action)
 		return actions[key].state;
 
 	return false;
+}
+
+bool Input::isActionPressed(const char *action)
+{
+	return getActionState(action);
 }
 
 float Input::getActionStrength(const char *action)

@@ -46,13 +46,24 @@ public:
 		BACK = SDL_GAMEPAD_BUTTON_BACK
 	};
 
-	// only allows one of each axis/button/key per action (for now)
-	struct Action {
+	struct ActionInput {
 		SDL_GamepadAxis axis;
 		int axisDirection;
 		float axisDeadzone;
 		SDL_GamepadButton button;
 		SDL_Scancode scanCode;
+
+		ActionInput() :
+			axis{ SDL_GAMEPAD_AXIS_INVALID },
+			axisDirection{},
+			axisDeadzone{},
+			button{ SDL_GAMEPAD_BUTTON_INVALID },
+			scanCode{ SDL_SCANCODE_UNKNOWN }
+		{}
+	};
+
+	struct Action {
+		std::vector<ActionInput> inputs;
 		bool pressed;
 		bool state;
 		float strength;
@@ -62,11 +73,7 @@ public:
 		int nextPressInMillis;
 
 		Action() :
-			axis{ SDL_GAMEPAD_AXIS_INVALID },
-			axisDirection{},
-			axisDeadzone{},
-			button{ SDL_GAMEPAD_BUTTON_INVALID },
-			scanCode{ SDL_SCANCODE_UNKNOWN },
+			inputs{},
 			pressed{},
 			state{},
 			strength{},
@@ -100,6 +107,7 @@ public:
 
 	// current state & strength of an action
 	bool getActionState(const char *action);
+	bool isActionPressed(const char *action);
 	float getActionStrength(const char *action);
 
 	// events w/optional repeat; clears 'pressed' status until next repeat (if enabled)
